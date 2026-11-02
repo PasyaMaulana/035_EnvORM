@@ -24,7 +24,7 @@ db.sequelize.sync()
 app.post("/komik", async (req, res) => {
     const data = req.body;
     try {
-        const komik = await db.komik.create(data);
+        const komik = await db.Komik.create(data);
         res.send(komik);
     } catch (err) {
         res.send(err);
@@ -33,7 +33,7 @@ app.post("/komik", async (req, res) => {
 
 app.get('/komik', async (req, res) => {
     try {
-        const komik = await db.komik.findAll();
+        const komik = await db.Komik.findAll();
         res.send(komik);
     } catch (err) {
         res.send(err);
